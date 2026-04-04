@@ -1,6 +1,6 @@
-# UNROM v2 Cartridge PCB
+# NES Cartridge PCB
 
-NES UNROM cartridge board design (v2).
+NES MMC1/MMC3 AND AOROM/UNROM BOARDS
 
 ## Board Layout
 
