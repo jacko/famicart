@@ -1,0 +1,129 @@
+module mmc3
+(
+	input romsel,
+	input cpu_rw,
+	input m2,
+    input ppu_rd,
+	input ppu_wr,
+	input [7:0] cpu_data, // cpu_data_in
+    input [14:0] cpu_addr, // cpu_addr_in (0, 13 & 14)
+    input [13:10] ppu_addr, // ppu_addr_in
+
+	output reg [18:13] prg_addr, // cpu_addr_out
+    output reg [18:10] chr_addr, // ppu_addr_out
+	output reg ciram_a10,
+    output irq,
+
+	output prg_ce,
+	output prg_oe,
+	output prg_we,
+
+    output chr_ce,
+    output chr_oe,
+    output chr_we
+);
+
+    // common register
+    reg [7:0] r0; // mmc1 load
+    reg [7:0] r1; // mmc1 control
+    reg [7:0] r2; // mmc1 chr0_bank
+    reg [7:0] r3; // mmc1 chr1_bank
+    reg [7:0] r4; // mmc1 prg_bank
+
+    // prg
+    assign prg_ce = romsel;
+    assign prg_oe = romsel | !cpu_rw;
+    assign prg_we = romsel | cpu_rw;
+
+    // chr
+    assign chr_ce = ppu_addr[13];
+    assign chr_oe = ppu_addr[13] | ppu_rd; // ppu_rd_out?
+    assign chr_we = 1'b1; // ppu_addr[13] | ppu_wr; // ppu_wr_out?
+
+    assign irq = 1'bz;
+
+    always @ (negedge m2)
+    begin
+        // if (cpu_rw == 0) // write
+        // aorom
+        //begin
+        //    if (romsel == 0) // $8000-$FFFF
+        //        r0 = cpu_data;
+        //end
+
+        // mmc1
+        if (cpu_rw == 0) // write
+        begin
+            if (romsel == 0) // $8000-$FFFF
+            begin
+                if (cpu_data[7] == 1) // clear shift register to inital state
+                begin
+                    // mmc1 init
+                    r0[5:0] = 6'b100000;
+                    r1[3:2] = 2'b11;
+                end else begin // change shift register value
+                    r0[5:0] = {cpu_data[0], r0[5:1]};
+                    if (r0[0] == 1) // fifth write
+                    begin
+                        case (cpu_addr[14:13])
+                            2'b00: r1[4:0] = r0[5:1]; // $8000-$9FFF
+                            2'b01: r2[4:0] = r0[5:1]; // $A000-$BFFF
+                            2'b10: r3[4:0] = r0[5:1]; // $C000-$DFFF
+                            2'b11: r4[4:0] = r0[5:1]; // $E000-$FFFF
+                        endcase
+                        r0[5:0] = 6'b100000;
+                    end
+                end
+            end else begin // $0000-$7FFF
+                // mmc1 initial state
+                begin
+                    r0[5:0] = 6'b100000;
+                    r1[3:2] = 2'b11;
+                end
+            end
+        end
+
+    end
+
+    always @ (*)
+    begin
+        // mmc1
+        if (romsel == 0) // read $8000-$FFFF
+        // prg rom bank mode
+        begin
+            case (r1[3:2])
+                2'b00: prg_addr[18:13] = {1'b0, r4[3:1], cpu_addr[14:13]}; // 32KB
+                2'b01: prg_addr[18:13] = {1'b0, r4[3:1], cpu_addr[14:13]}; // 32KB
+                2'b10: if (cpu_addr[14] == 0) // $8000-$BFFF
+                            prg_addr[18:13] = {5'b00000, cpu_addr[13]}; // first bank
+                        else // $C000-$FFFF
+                            prg_addr[18:13] = {1'b0, r4[3:0], cpu_addr[13]}; // 16KB
+                2'b11: if (cpu_addr[14] == 0) // $8000-$BFFF
+                            prg_addr[18:13] = {1'b0, r4[3:0], cpu_addr[13]}; // 16KB
+                        else // $C000-$FFFF
+                            prg_addr[18:13] = {5'b11111, cpu_addr[13]}; // last bank
+            endcase
+        end
+        // chr rom bank mode
+        case (r1[4])
+            0: chr_addr[18:10] = {2'b00, r2[4:1], ppu_addr[12:10]}; // 8KB
+            1: if (ppu_addr[12] == 0) // 4KB
+                    chr_addr[18:10] = {2'b00, r2[4:0], ppu_addr[11:10]}; // first bank
+                else
+                    chr_addr[18:10] = {2'b00, r3[4:0], ppu_addr[11:10]}; // second bank
+        endcase
+        // control mirroring
+        case (r1[1:0])
+            2'b00: ciram_a10 = 0;
+            2'b01: ciram_a10 = 1;
+            2'b10: ciram_a10 = ppu_addr[10]; // verical mirroring
+            2'b11: ciram_a10 = ppu_addr[11]; // horizontal mirroring
+        endcase
+
+        // aorom
+		// prg_addr[18] = 1;
+            //prg_addr[17:15] = r0[2:0];
+        //ciram_a10 = r0[4];
+    end
+
+endmodule

@@ -1,0 +1,45 @@
+module mmc1
+(
+	input romsel,
+	input cpu_rw,
+	input m2,
+	input ppu_rd,
+	input ppu_wr,
+	input [7:0] cpu_data, // cpu_data_in
+	input [14:0] cpu_addr, // cpu_addr_in (0, 13 & 14)
+	input [13:10] ppu_addr, // ppu_addr_in
+
+	output [18:13] prg_addr, // cpu_addr_out
+	output [18:10] chr_addr, // ppu_addr_out
+	output ciram_a10,
+	output irq,
+
+	output prg_ce,
+	output prg_oe,
+	output prg_we,
+
+	output chr_ce,
+	output chr_oe,
+	output chr_we
+);
+
+   assign prg_ce = romsel;
+   assign prg_oe = romsel | !cpu_rw;
+   assign prg_we = romsel | cpu_rw;
+
+   // chr
+   assign chr_ce = ppu_addr[13];
+   assign chr_oe = ppu_addr[13] | ppu_rd;
+   assign chr_we = 1'b1;
+
+   assign irq = 1'bz;
+
+	assign prg_addr[18:15] = 4'b0000;
+	assign chr_addr[18:13] = 6'b000000;
+
+	assign prg_addr[14:13] = cpu_addr[14:13];
+	assign chr_addr[12:10] = ppu_addr[12:10];
+
+	assign ciram_a10 = ppu_addr[10];
+
+endmodule

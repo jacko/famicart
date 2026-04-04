@@ -1,0 +1,49 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'ppu_addr[12]'
+Slack : -16.400
+TNS   : -157.000
+
+Type  : Setup 'romsel'
+Slack : -9.800
+TNS   : -718.900
+
+Type  : Setup 'm2'
+Slack : -9.200
+TNS   : -27.600
+
+Type  : Hold 'ppu_addr[12]'
+Slack : 2.700
+TNS   : 0.000
+
+Type  : Hold 'm2'
+Slack : 6.000
+TNS   : 0.000
+
+Type  : Hold 'romsel'
+Slack : 6.000
+TNS   : 0.000
+
+Type  : Recovery 'm2'
+Slack : -7.500
+TNS   : -22.500
+
+Type  : Removal 'm2'
+Slack : 3.800
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'romsel'
+Slack : -3.500
+TNS   : -518.000
+
+Type  : Minimum Pulse Width 'ppu_addr[12]'
+Slack : -3.500
+TNS   : -70.000
+
+Type  : Minimum Pulse Width 'm2'
+Slack : -3.500
+TNS   : -21.000
+
+------------------------------------------------------------

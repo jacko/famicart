@@ -1,0 +1,9 @@
+Fitter Status : Successful - Sat Dec 21 15:07:18 2024
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : mmc1
+Top-level Entity Name : mmc1
+Family : MAX3000A
+Device : EPM3128ATC100-10
+Timing Models : Final
+Total macrocells : 127 / 128 ( 99 % )
+Total pins : 59 / 80 ( 74 % )
