@@ -4,7 +4,8 @@ NES UNROM cartridge board design (v2).
 
 ## Board Layout
 
-![UNROM v2 PCB](unrom-aorom/v2/unromv2.png)
+![MMC-1MMC3 V2 PCB](mmc1-mmc3/v2/board.png)
+![AOROM-UNROM v2 PCB](unrom-aorom/v2/board.png)
 
 ## Files
 
