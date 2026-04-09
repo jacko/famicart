@@ -1,0 +1,373 @@
+Fitter report for axrom
+Wed Apr 08 14:17:40 2026
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Summary
+  3. Fitter Settings
+  4. Parallel Compilation
+  5. Pin-Out File
+  6. Fitter Resource Usage Summary
+  7. Input Pins
+  8. Output Pins
+  9. All Package Pins
+ 10. I/O Standard
+ 11. Dedicated Inputs I/O
+ 12. Output Pin Default Load For Reported TCO
+ 13. Fitter Resource Utilization by Entity
+ 14. Control Signals
+ 15. Global & Other Fast Signals
+ 16. Non-Global High Fan-Out Signals
+ 17. Other Routing Usage Summary
+ 18. LAB Macrocells
+ 19. Logic Cell Interconnection
+ 20. Fitter Device Options
+ 21. Fitter Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Fitter Summary                                                              ;
++---------------------------+-------------------------------------------------+
+; Fitter Status             ; Successful - Wed Apr 08 14:17:40 2026           ;
+; Quartus II 64-Bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name             ; axrom                                           ;
+; Top-level Entity Name     ; axrom                                           ;
+; Family                    ; MAX3000A                                        ;
+; Device                    ; EPM3064ATC44-10                                 ;
+; Timing Models             ; Final                                           ;
+; Total macrocells          ; 12 / 64 ( 19 % )                                ;
+; Total pins                ; 23 / 34 ( 68 % )                                ;
++---------------------------+-------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Fitter Settings                                                                                              ;
++----------------------------------------------------------------------------+-----------------+---------------+
+; Option                                                                     ; Setting         ; Default Value ;
++----------------------------------------------------------------------------+-----------------+---------------+
+; Device                                                                     ; EPM3064ATC44-10 ;               ;
+; Use smart compilation                                                      ; Off             ; Off           ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On              ; On            ;
+; Enable compact report table                                                ; Off             ; Off           ;
+; Optimize Multi-Corner Timing                                               ; Off             ; Off           ;
+; Optimize Timing for ECOs                                                   ; Off             ; Off           ;
+; Regenerate full fit report during ECO compiles                             ; Off             ; Off           ;
+; Optimize IOC Register Placement for Timing                                 ; Normal          ; Normal        ;
+; Fitter Initial Placement Seed                                              ; 1               ; 1             ;
+; Slow Slew Rate                                                             ; Off             ; Off           ;
+; Fitter Effort                                                              ; Auto Fit        ; Auto Fit      ;
+; Force Fitter to Avoid Periphery Placement Warnings                         ; Off             ; Off           ;
++----------------------------------------------------------------------------+-----------------+---------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------+
+; Pin-Out File ;
++--------------+
+The pin-out file can be found in C:/Users/jacks/Documents/famicart/mappers/MAX3000/AXROM_V2/output_files/axrom.pin.
+
+
++-------------------------------------------------+
+; Fitter Resource Usage Summary                   ;
++------------------------------+------------------+
+; Resource                     ; Usage            ;
++------------------------------+------------------+
+; Logic cells                  ; 12 / 64 ( 19 % ) ;
+; Registers                    ; 4 / 64 ( 6 % )   ;
+; Number of pterms used        ; 21               ;
+; I/O pins                     ; 23 / 34 ( 68 % ) ;
+;     -- Clock pins            ; 1 / 2 ( 50 % )   ;
+;     -- Dedicated input pins  ; 0 / 2 ( 0 % )    ;
+;                              ;                  ;
+; Global signals               ; 1                ;
+; Shareable expanders          ; 0 / 64 ( 0 % )   ;
+; Parallel expanders           ; 0 / 60 ( 0 % )   ;
+; Cells using turbo bit        ; 12 / 64 ( 19 % ) ;
+; Maximum fan-out              ; 10               ;
+; Highest non-global fan-out   ; 10               ;
+; Total fan-out                ; 40               ;
+; Average fan-out              ; 1.14             ;
++------------------------------+------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                       ;
++-------------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
+; Name        ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; I/O Standard ; Location assigned by ;
++-------------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
+; cpu_addr_14 ; 19    ; --       ; 3   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; cpu_data[0] ; 8     ; --       ; 2   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; cpu_data[1] ; 6     ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; cpu_data[2] ; 5     ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; cpu_data[3] ; 3     ; --       ; 1   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; cpu_data[4] ; 2     ; --       ; 1   ; 1                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; cpu_rw      ; 14    ; --       ; 2   ; 6                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; m2          ; 37    ; --       ; --  ; 4                     ; 0                  ; yes    ; 3.3-V LVTTL  ; User                 ;
+; ppu_addr_10 ; 18    ; --       ; 3   ; 0                     ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
+; romsel      ; 13    ; --       ; 2   ; 10                    ; 0                  ; no     ; 3.3-V LVTTL  ; User                 ;
++-------------+-------+----------+-----+-----------------------+--------------------+--------+--------------+----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                                                      ;
++--------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; Name         ; Pin # ; I/O Bank ; LAB ; Output Register ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
++--------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+; ciram_a10    ; 15    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; power_led    ; 12    ; --       ; 2   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; prg_addr[15] ; 33    ; --       ; 4   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; prg_addr[16] ; 34    ; --       ; 4   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; prg_addr[17] ; 31    ; --       ; 4   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; prg_addr_14  ; 42    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; prg_ce       ; 44    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; prg_oe       ; 43    ; --       ; 1   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
+; prg_we       ; 35    ; --       ; 4   ; no              ; no             ; no         ; no            ; 3.3-V LVTTL  ; User                 ; 10 pF ; -                    ; -                   ;
++--------------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                      ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage ; User Assignment ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+; 1        ; 6          ; --       ; TDI            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 2        ; 7          ; --       ; cpu_data[4]    ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 3        ; 8          ; --       ; cpu_data[3]    ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 4        ; 9          ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 5        ; 10         ; --       ; cpu_data[2]    ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 6        ; 11         ; --       ; cpu_data[1]    ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 7        ; 12         ; --       ; TMS            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 8        ; 13         ; --       ; cpu_data[0]    ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 9        ; 14         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; 10       ; 15         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 11       ; 16         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 12       ; 17         ; --       ; power_led      ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 13       ; 18         ; --       ; romsel         ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 14       ; 19         ; --       ; cpu_rw         ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 15       ; 20         ; --       ; ciram_a10      ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 16       ; 21         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 17       ; 22         ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; 18       ; 23         ; --       ; ppu_addr_10    ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 19       ; 24         ; --       ; cpu_addr_14    ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 20       ; 25         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 21       ; 26         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 22       ; 27         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 23       ; 28         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 24       ; 29         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 25       ; 30         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 26       ; 31         ; --       ; TCK            ; input  ; 3.3-V LVTTL  ;         ; N               ;
+; 27       ; 32         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 28       ; 33         ; --       ; RESERVED       ;        ;              ;         ;                 ;
+; 29       ; 34         ; --       ; VCCIO          ; power  ;              ; 3.3V    ;                 ;
+; 30       ; 35         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 31       ; 36         ; --       ; prg_addr[17]   ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 32       ; 37         ; --       ; TDO            ; output ; 3.3-V LVTTL  ;         ; N               ;
+; 33       ; 38         ; --       ; prg_addr[15]   ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 34       ; 39         ; --       ; prg_addr[16]   ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 35       ; 40         ; --       ; prg_we         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 36       ; 41         ; --       ; GND            ; gnd    ;              ;         ;                 ;
+; 37       ; 42         ; --       ; m2             ; input  ; 3.3-V LVTTL  ;         ; Y               ;
+; 38       ; 43         ; --       ; GND+           ;        ;              ;         ;                 ;
+; 39       ; 0          ; --       ; GND+           ;        ;              ;         ;                 ;
+; 40       ; 1          ; --       ; GND+           ;        ;              ;         ;                 ;
+; 41       ; 2          ; --       ; VCCINT         ; power  ;              ; 3.3V    ;                 ;
+; 42       ; 3          ; --       ; prg_addr_14    ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 43       ; 4          ; --       ; prg_oe         ; output ; 3.3-V LVTTL  ;         ; Y               ;
+; 44       ; 5          ; --       ; prg_ce         ; output ; 3.3-V LVTTL  ;         ; Y               ;
++----------+------------+----------+----------------+--------+--------------+---------+-----------------+
+Note: Pin directions (input, output or bidir) are based on device operating in user mode.
+
+
++--------------------------------------------------------------------------------------------------+
+; I/O Standard                                                                                     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; I/O Standard ; Input Vref ; Dedicated Input Pins ; Pins in I/O Bank1 ; Pins in I/O Bank2 ; Total ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+; 3.3-V LVTTL  ; -          ; 1                    ; 0                 ; 0                 ; 1     ;
++--------------+------------+----------------------+-------------------+-------------------+-------+
+
+
++--------------------------------------------------------------------+
+; Dedicated Inputs I/O                                               ;
++------+-------+-------+-------+--------------+------------+---------+
+; Name ; Pin # ; Type  ; VCCIO ; I/O Standard ; Input Vref ; Current ;
++------+-------+-------+-------+--------------+------------+---------+
+; m2   ; 37    ; Input ; --    ; 3.3-V LVTTL  ; -          ; 0 mA    ;
++------+-------+-------+-------+--------------+------------+---------+
+
+
++-----------------------------------------------+
+; Output Pin Default Load For Reported TCO      ;
++--------------+-------+------------------------+
+; I/O Standard ; Load  ; Termination Resistance ;
++--------------+-------+------------------------+
+; 3.3-V LVTTL  ; 10 pF ; Not Available          ;
+; 3.3-V LVCMOS ; 10 pF ; Not Available          ;
+; 3.3-V PCI    ; 10 pF ; 25 Ohm (Parallel)      ;
+; 2.5 V        ; 10 pF ; Not Available          ;
++--------------+-------+------------------------+
+Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
+
+
++-------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                               ;
++----------------------------+------------+------+---------------------+--------------+
+; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+------------+------+---------------------+--------------+
+; |axrom                     ; 12         ; 23   ; |axrom              ; work         ;
++----------------------------+------------+------+---------------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Control Signals                                                                               ;
++--------+----------+---------+--------------+--------+----------------------+------------------+
+; Name   ; Location ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
++--------+----------+---------+--------------+--------+----------------------+------------------+
+; cpu_rw ; PIN_14   ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; m2     ; PIN_37   ; 4       ; Clock        ; yes    ; On                   ; --               ;
+; romsel ; PIN_13   ; 10      ; Clock enable ; no     ; --                   ; --               ;
++--------+----------+---------+--------------+--------+----------------------+------------------+
+
+
++---------------------------------------------------------------------+
+; Global & Other Fast Signals                                         ;
++------+----------+---------+----------------------+------------------+
+; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++------+----------+---------+----------------------+------------------+
+; m2   ; PIN_37   ; 4       ; On                   ; --               ;
++------+----------+---------+----------------------+------------------+
+
+
++---------------------------------+
+; Non-Global High Fan-Out Signals ;
++----------------------+----------+
+; Name                 ; Fan-Out  ;
++----------------------+----------+
+; romsel               ; 10       ;
+; cpu_rw               ; 6        ;
+; prg_addr[17]$latch~6 ; 2        ;
+; prg_addr[16]$latch~6 ; 2        ;
+; prg_addr[15]$latch~6 ; 2        ;
+; cpu_addr_14          ; 1        ;
+; cpu_data[4]          ; 1        ;
+; cpu_data[2]          ; 1        ;
+; cpu_data[1]          ; 1        ;
+; cpu_data[0]          ; 1        ;
+; ~VCC~0               ; 1        ;
+; r0[4]                ; 1        ;
+; r0[2]                ; 1        ;
+; r0[1]                ; 1        ;
+; r0[0]                ; 1        ;
+; romsel~1             ; 1        ;
+; cpu_addr_14~1        ; 1        ;
+; prg_we~5             ; 1        ;
+; prg_oe~1             ; 1        ;
++----------------------+----------+
+
+
++-------------------------------------------------+
+; Other Routing Usage Summary                     ;
++-----------------------------+-------------------+
+; Other Routing Resource Type ; Usage             ;
++-----------------------------+-------------------+
+; Output enables              ; 0 / 6 ( 0 % )     ;
+; PIA buffers                 ; 17 / 144 ( 12 % ) ;
++-----------------------------+-------------------+
+
+
++----------------------------------------------------------------------+
+; LAB Macrocells                                                       ;
++----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 3.00) ; Number of LABs  (Total = 3) ;
++----------------------------------------+-----------------------------+
+; 0                                      ; 1                           ;
+; 1                                      ; 0                           ;
+; 2                                      ; 1                           ;
+; 3                                      ; 0                           ;
+; 4                                      ; 1                           ;
+; 5                                      ; 0                           ;
+; 6                                      ; 1                           ;
++----------------------------------------+-----------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                  ;
++-----+------------+-------------------------------------+------------------------------------+
+; LAB ; Logic Cell ; Input                               ; Output                             ;
++-----+------------+-------------------------------------+------------------------------------+
+;  A  ; LC14       ; romsel, cpu_rw                      ; prg_oe                             ;
+;  A  ; LC16       ; cpu_addr_14                         ; prg_addr_14                        ;
+;  A  ; LC11       ; romsel                              ; prg_ce                             ;
+;  A  ; LC1        ; m2, cpu_data[0], romsel, cpu_rw     ; prg_addr[15]$latch~6               ;
+;  A  ; LC4        ; m2, cpu_data[1], romsel, cpu_rw     ; prg_addr[16]$latch~6               ;
+;  A  ; LC8        ; m2, cpu_data[2], romsel, cpu_rw     ; prg_addr[17]$latch~6               ;
+;  B  ; LC17       ; m2, cpu_data[4], romsel, cpu_rw     ; ciram_a10                          ;
+;  B  ; LC21       ;                                     ; power_led                          ;
+;  D  ; LC64       ; romsel, cpu_rw                      ; prg_we                             ;
+;  D  ; LC57       ; r0[0], romsel, prg_addr[15]$latch~6 ; prg_addr[15]$latch~6, prg_addr[15] ;
+;  D  ; LC62       ; r0[1], romsel, prg_addr[16]$latch~6 ; prg_addr[16]$latch~6, prg_addr[16] ;
+;  D  ; LC53       ; r0[2], romsel, prg_addr[17]$latch~6 ; prg_addr[17]$latch~6, prg_addr[17] ;
++-----+------------+-------------------------------------+------------------------------------+
+
+
++---------------------------------------------------------------+
+; Fitter Device Options                                         ;
++----------------------------------------------+----------------+
+; Option                                       ; Setting        ;
++----------------------------------------------+----------------+
+; Enable user-supplied start-up clock (CLKUSR) ; Off            ;
+; Enable device-wide reset (DEV_CLRn)          ; Off            ;
+; Enable device-wide output enable (DEV_OE)    ; Off            ;
+; Enable INIT_DONE output                      ; Off            ;
+; Configuration scheme                         ; Passive Serial ;
+; Security bit                                 ; Off            ;
+; Base pin-out file on sameframe device        ; Off            ;
++----------------------------------------------+----------------+
+
+
++-----------------+
+; Fitter Messages ;
++-----------------+
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (119006): Selected device EPM3064ATC44-10 for design "axrom"
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4676 megabytes
+    Info: Processing ended: Wed Apr 08 14:17:40 2026
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+
