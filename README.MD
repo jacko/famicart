@@ -1,6 +1,6 @@
-# NES Cartridge PCB
+# Famicom Cartridge PCB
 
-NES MMC1/MMC3 AND AOROM/UNROM BOARDS
+MMC1/MMC3 AND AOROM/UNROM BOARDS
 
 ## Board Layout
 
