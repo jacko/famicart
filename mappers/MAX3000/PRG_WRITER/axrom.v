@@ -7,7 +7,7 @@ module axrom
 	input ppu_addr_10,
 	input cpu_addr_14,
 
-	output [17:15] prg_addr,
+	output reg [17:15] prg_addr,
 	output prg_addr_14,
 	output reg ciram_a10,
 	output prg_ce,
