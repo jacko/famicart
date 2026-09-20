@@ -9,6 +9,6 @@ MMC1/MMC3 AND AOROM/UNROM BOARDS
 
 ## Files
 
-- [unromv2.dch](pcb/unrom-aorom/v2/unromv2.dch) - Schematic
-- [unromv2.dip](pcb/unrom-aorom/v2/unromv2.dip) - PCB layout
-- [unromv2_gerber.zip](pcb/unrom-aorom/v2/unromv2-2_gerber.zip) - Gerber files for manufacturing
+UNROM/AOROM Gerber files for manufacturing:
+- [unrom.zip](pcb/unrom-aorom/v2/unromv2-2_gerber.zip)
+- [mmc3.zip](pcb/mmc1-mmc3/v2.4/mmc3_gerber.zip)
